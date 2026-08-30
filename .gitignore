@@ -1,0 +1,5 @@
+.DS_Store
+.netlify/
+node_modules/
+*.local.md
+.claude/settings.local.json

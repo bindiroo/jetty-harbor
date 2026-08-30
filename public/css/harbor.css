@@ -1,0 +1,102 @@
+/* ============================================================
+   Harbor — Jetty brand styles
+   Deep Sea #43575E · Atlantic #586D72 · Mid-tone #8FA8AE
+   Sage #5A7B6A · Sand #8B6F47 · Graphite #252933 · Cloud #F6F7F7
+   Fonts: Nunito (headings) · Inter (body) · "Draw Your Own Line."
+   ============================================================ */
+:root {
+  --deep-sea:#43575E; --atlantic:#586D72; --mid-tone:#8FA8AE;
+  --sage:#5A7B6A; --sand:#8B6F47; --graphite:#252933;
+  --cloud:#F6F7F7; --grey-sky:#EDECED;
+  --card:#fff; --line:#EDECED;
+  --shadow:0 1px 3px rgba(37,41,51,.08),0 1px 2px rgba(37,41,51,.04);
+  --shadow-lift:0 10px 26px rgba(37,41,51,.13),0 3px 8px rgba(37,41,51,.07);
+  --radius:12px;
+}
+* { box-sizing:border-box; }
+html,body { margin:0; padding:0; }
+body {
+  font-family:"Inter",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+  color:var(--graphite); background:var(--cloud); font-size:14px; line-height:1.45;
+  min-height:100vh; display:flex; flex-direction:column;
+}
+h1,h2,h3 { font-family:"Nunito",system-ui,Arial,sans-serif; font-weight:800; margin:0; }
+button,input { font-family:inherit; }
+
+/* ---------- password gate ---------- */
+.gate { position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+  background:var(--deep-sea); padding:20px; }
+.gate__card { background:rgba(255,255,255,.06); border:1px solid rgba(246,247,247,.16); border-radius:16px;
+  padding:34px 32px 30px; width:340px; max-width:92vw; display:flex; flex-direction:column; align-items:center;
+  box-shadow:0 10px 40px rgba(0,0,0,.25); }
+.gate__logo { height:52px; width:52px; margin-bottom:12px; }
+.gate__mark { font-family:"Nunito"; font-weight:900; letter-spacing:2px; font-size:26px; color:#fff; }
+.gate__title { font-family:"Nunito"; font-weight:700; font-size:15px; color:var(--mid-tone); margin-top:2px; }
+.gate__tag { font-family:"Nunito"; font-weight:800; font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--mid-tone); margin:6px 0 20px; }
+.gate__input { width:100%; padding:11px 13px; border:1px solid rgba(246,247,247,.25); border-radius:9px;
+  background:rgba(255,255,255,.95); font-size:15px; color:var(--graphite); text-align:center; }
+.gate__input:focus { outline:none; border-color:var(--mid-tone); box-shadow:0 0 0 3px rgba(143,168,174,.35); }
+.gate__btn { width:100%; margin-top:12px; padding:11px 13px; border:none; border-radius:9px; cursor:pointer;
+  background:var(--sage); color:#fff; font-family:"Nunito"; font-weight:800; font-size:14px; letter-spacing:.04em; }
+.gate__btn:hover { background:#4d6b5b; }
+.gate__err { min-height:18px; margin-top:10px; font-size:12.5px; color:#ffb4a8; text-align:center; }
+
+/* ---------- hero header ---------- */
+.hero { background:var(--deep-sea); color:var(--cloud); padding:34px 24px 40px; }
+.hero__inner { max-width:1040px; margin:0 auto; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.hero__logo { height:44px; width:44px; display:block; }
+.hero__mark { font-family:"Nunito"; font-weight:900; letter-spacing:1.6px; font-size:28px; color:#fff; line-height:1; }
+.hero__title { font-family:"Nunito"; font-weight:700; font-size:15px; color:var(--mid-tone); align-self:center; }
+.hero__tag { font-family:"Nunito"; font-weight:800; font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--mid-tone); border-left:1px solid rgba(246,247,247,.25); padding-left:14px; align-self:center; }
+.hero__sub { max-width:1040px; margin:14px auto 0; font-size:13.5px; color:var(--mid-tone); }
+
+/* ---------- KPI strip (only renders if HARBOR.KPIS is non-empty) ---------- */
+.kpis { max-width:1040px; margin:-26px auto 0; padding:0 24px; display:grid; gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); }
+.kpi { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; box-shadow:var(--shadow); }
+.kpi__val { font-family:"Nunito"; font-weight:900; font-size:24px; color:var(--deep-sea); line-height:1.1; }
+.kpi__lbl { font-size:11px; color:var(--atlantic); margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
+.kpi__src { font-size:10.5px; color:var(--mid-tone); margin-top:2px; }
+
+/* ---------- tiles ---------- */
+.wrap { max-width:1040px; margin:0 auto; padding:30px 24px 0; flex:1 0 auto; width:100%; }
+.wrap--tight { padding-top:34px; }
+.sectlbl { font-family:"Nunito"; font-weight:800; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--atlantic); margin:6px 0 12px; }
+.tiles { display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(272px,1fr)); }
+
+.tile { display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid var(--line);
+  border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 18px 17px; text-decoration:none;
+  color:inherit; transition:transform .13s ease, box-shadow .13s ease, border-color .13s ease; position:relative; }
+.tile:hover { transform:translateY(-2px); box-shadow:var(--shadow-lift); border-color:var(--mid-tone); }
+.tile:focus-visible { outline:3px solid var(--mid-tone); outline-offset:2px; }
+.tile__icon { flex:0 0 auto; width:42px; height:42px; border-radius:10px; background:var(--cloud);
+  display:flex; align-items:center; justify-content:center; }
+.tile__icon svg { width:23px; height:23px; stroke:var(--deep-sea); fill:none; stroke-width:1.7;
+  stroke-linecap:round; stroke-linejoin:round; }
+.tile__body { min-width:0; }
+.tile__name { font-family:"Nunito"; font-weight:800; font-size:15.5px; color:var(--graphite); }
+.tile__blurb { font-size:12.5px; color:var(--atlantic); margin-top:3px; }
+.tile__arrow { position:absolute; top:16px; right:16px; font-size:14px; color:var(--mid-tone); }
+.tile:hover .tile__arrow { color:var(--sage); }
+
+/* a tile whose url is still blank */
+.tile--todo { cursor:default; background:#fbfbfb; border-style:dashed; }
+.tile--todo:hover { transform:none; box-shadow:var(--shadow); border-color:var(--line); }
+.tile--todo .tile__name, .tile--todo .tile__blurb { color:var(--mid-tone); }
+.tile--todo .tile__icon svg { stroke:var(--mid-tone); }
+.tile__soon { display:inline-block; margin-top:7px; font-family:"Nunito"; font-weight:800; font-size:10px;
+  letter-spacing:.07em; text-transform:uppercase; color:var(--sand); border:1px solid var(--sand);
+  border-radius:20px; padding:1px 9px; }
+
+.foot { text-align:center; font-size:11.5px; color:var(--mid-tone); padding:34px 20px 26px; }
+
+@media (max-width:640px) {
+  .hero { padding:26px 18px 34px; }
+  .hero__mark { font-size:24px; }
+  .wrap, .kpis { padding-left:18px; padding-right:18px; }
+  .hero__tag { border-left:none; padding-left:0; }
+  .hero__inner { gap:12px; }
+}

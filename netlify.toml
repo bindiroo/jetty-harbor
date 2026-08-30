@@ -1,0 +1,17 @@
+# ============================================================
+# Netlify configuration — Harbor (static site, no build step)
+# ============================================================
+[build]
+  publish = "public"
+  command = ""
+
+# Always revalidate so a new link shows up the moment you deploy.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

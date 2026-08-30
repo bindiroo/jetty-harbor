@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harbor — Jetty</title>
+  <meta name="description" content="Every Jetty tool, one door." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="css/harbor.css" />
+</head>
+<body>
+  <!-- ---------------- password gate ---------------- -->
+  <div id="gate" class="gate">
+    <form id="gateForm" class="gate__card">
+      <img class="gate__logo" src="assets/jetty-badge-white.png" alt="Jetty" />
+      <div class="gate__mark">JETTY</div>
+      <div class="gate__title">Harbor</div>
+      <div class="gate__tag">Draw Your Own Line.</div>
+      <input type="password" id="gatePw" class="gate__input" placeholder="Password" autocomplete="current-password" aria-label="Password" />
+      <button type="submit" class="gate__btn">Enter</button>
+      <div id="gateErr" class="gate__err" role="alert"></div>
+    </form>
+  </div>
+
+  <header class="hero">
+    <div class="hero__inner">
+      <img class="hero__logo" src="assets/jetty-badge-white.png" alt="Jetty" />
+      <span class="hero__mark">JETTY</span>
+      <span class="hero__title" id="heroTitle">Harbor</span>
+      <span class="hero__tag" id="heroTag">Draw Your Own Line.</span>
+    </div>
+    <div class="hero__sub" id="heroSub"></div>
+  </header>
+
+  <!-- KPI strip — stays empty until HARBOR.KPIS is filled in -->
+  <section class="kpis" id="kpis" hidden></section>
+
+  <main class="wrap" id="main">
+    <div class="sectlbl">Tools</div>
+    <section class="tiles" id="tiles"></section>
+
+    <div id="funWrap" hidden>
+      <div class="sectlbl" style="margin-top:30px">Off the clock</div>
+      <section class="tiles" id="funTiles"></section>
+    </div>
+  </main>
+
+  <div class="foot">Jetty · Draw Your Own Line.</div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
