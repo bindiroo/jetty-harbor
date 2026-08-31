@@ -47,7 +47,11 @@ export const HARBOR = {
     {
       name: "Manifest",
       blurb: "Order status & fulfillment for the WHSL team.",
-      url: "https://jetty-order-manifest.netlify.app",
+      // MASTER link (?key=...) — shows every territory's rows, deliberately.
+      // Safe only because Harbor's audience is leadership, not reps. If reps
+      // ever get the Harbor password this must change: see README, "A note on
+      // the Manifest key".
+      url: "https://jetty-order-manifest.netlify.app/?key=0fb68200dae7459f9d083ec43f804d5e",
       icon: "manifest",
     },
     {

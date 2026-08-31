@@ -82,6 +82,51 @@ thing behind the gate is a list of links, and every tool those links point at ha
 its own gate. Do not put anything genuinely sensitive on this page without moving
 to server-side protection first (see `docs/REAL-AUTH.md`).
 
+## A note on the Manifest key
+
+The Manifest tile links to the **master** link (`?key=…`), which shows every
+territory's rows. The Manifest was built so that a rep opening a `?rep=<token>`
+link only ever receives their own data — the master key bypasses that.
+
+So the rule this page runs on: **whoever can open Harbor can see every
+territory's order book.**
+
+That is a deliberate choice, made 2026-08-30. Harbor's audience is Cory, Paul,
+and leadership — not reps. The master link is the right one for that group.
+
+**This is the constraint to check before widening access.** The moment a rep has
+the Harbor password, they have the all-territories view and the per-rep token
+design stops meaning anything. A rep-facing Harbor is a someday idea, not a
+current plan; if it happens, it should be a separate page that carries no key,
+or Harbor should switch to passing keys through — see below.
+
+Also worth knowing: rotating `MASTER_KEY` in Apps Script silently breaks this
+tile until the URL here is updated to match.
+
+## Passing keys through (not built yet)
+
+Instead of baking a key into the tile, Harbor can read one off its own URL and
+append it to the tiles that need it:
+
+```js
+// in a tile
+{ name: "Manifest", url: "https://jetty-order-manifest.netlify.app/", needsKey: true }
+```
+
+```js
+// in app.js, when building the href
+const key = new URLSearchParams(location.search).get("key");
+if (t.needsKey && key) url += (url.includes("?") ? "&" : "?") + "key=" + key;
+```
+
+Then you bookmark `…/?key=<master>` and get master links throughout, a rep
+bookmarks `…/?rep=<their token>` and gets their own scoped links, and the plain
+Harbor URL carries no key at all. Nothing sensitive lands in this repo.
+
+The trade-off: everyone needs their own Harbor link rather than one shared URL.
+That cost is why it isn't built — with a leadership-only audience it buys
+nothing. It becomes the right answer if a rep-facing Harbor ever happens.
+
 ## Keep the repo private
 
 The site is public; the **repo should stay private**. A public repo would publish
