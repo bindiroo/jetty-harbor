@@ -83,22 +83,22 @@ export const HARBOR = {
 
     // ---------- Airtable ----------
     {
-      name: "Sales Rep Resource Center",
-      blurb: "Jetty WHSL Resource Center base.",
+      name: "Resource Center",
+      blurb: "Sales rep resources — Jetty WHSL Resource Center.",
       url: "https://airtable.com/appHPbrOjbD4AfSlG/tblJoPHK9ERA7ScfT/viw4j9m97k5kpnxvK?blocks=hide",
       icon: "table",
       section: "airtable",
     },
     {
-      name: "Cory Sandbox",
-      blurb: "Commercial Sales New base — goals and variance working view.",
+      name: "CRM",
+      blurb: "Commercial Sales New base.",
       url: "https://airtable.com/appVIK4CawVEY8hBJ/tblWhs5YnLHVVYhGd/viw6WWATT5UURDU8D?blocks=hide",
       icon: "table",
       section: "airtable",
     },
     {
-      name: "Airtable Interface",        // TODO: real name — Cory to confirm
-      blurb: "",
+      name: "Budget Tracker HUB",
+      blurb: "",                    // add a one-liner here if you want one
       url: "https://airtable.com/appJbKBr1gHkPtd8a/pageqGmhsGBhBXiUM",
       icon: "layout",
       section: "airtable",

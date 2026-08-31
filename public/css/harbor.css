@@ -65,23 +65,23 @@ button,input { font-family:inherit; }
 .wrap--tight { padding-top:34px; }
 .sectlbl { font-family:"Nunito"; font-weight:800; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
   color:var(--atlantic); margin:6px 0 12px; }
-.tiles { display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(272px,1fr)); }
+.tiles { display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(228px,1fr)); }
 .sect + .sect { margin-top:32px; }
 .sectnote { font-size:12px; color:var(--mid-tone); margin:-6px 0 12px; }
 
-.tile { display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid var(--line);
-  border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 18px 17px; text-decoration:none;
+.tile { display:flex; gap:11px; align-items:flex-start; background:#fff; border:1px solid var(--line);
+  border-radius:10px; box-shadow:var(--shadow); padding:13px 14px 12px; text-decoration:none;
   color:inherit; transition:transform .13s ease, box-shadow .13s ease, border-color .13s ease; position:relative; }
 .tile:hover { transform:translateY(-2px); box-shadow:var(--shadow-lift); border-color:var(--mid-tone); }
 .tile:focus-visible { outline:3px solid var(--mid-tone); outline-offset:2px; }
-.tile__icon { flex:0 0 auto; width:42px; height:42px; border-radius:10px; background:var(--cloud);
+.tile__icon { flex:0 0 auto; width:34px; height:34px; border-radius:8px; background:var(--cloud);
   display:flex; align-items:center; justify-content:center; }
-.tile__icon svg { width:23px; height:23px; stroke:var(--deep-sea); fill:none; stroke-width:1.7;
+.tile__icon svg { width:19px; height:19px; stroke:var(--deep-sea); fill:none; stroke-width:1.7;
   stroke-linecap:round; stroke-linejoin:round; }
-.tile__body { min-width:0; }
-.tile__name { font-family:"Nunito"; font-weight:800; font-size:15.5px; color:var(--graphite); }
-.tile__blurb { font-size:12.5px; color:var(--atlantic); margin-top:3px; }
-.tile__arrow { position:absolute; top:16px; right:16px; font-size:14px; color:var(--mid-tone); }
+.tile__body { min-width:0; padding-right:14px; }   /* keeps long names clear of the ↗ */
+.tile__name { font-family:"Nunito"; font-weight:800; font-size:14px; color:var(--graphite); line-height:1.25; }
+.tile__blurb { font-size:11.5px; color:var(--atlantic); margin-top:2px; line-height:1.35; }
+.tile__arrow { position:absolute; top:11px; right:12px; font-size:12px; color:var(--mid-tone); }
 .tile:hover .tile__arrow { color:var(--sage); }
 
 /* Airtable tiles — sand edge + sand icon, so they read as "leaves the Jetty
@@ -97,7 +97,7 @@ button,input { font-family:inherit; }
 .tile--todo:hover { transform:none; box-shadow:var(--shadow); border-color:var(--line); }
 .tile--todo .tile__name, .tile--todo .tile__blurb { color:var(--mid-tone); }
 .tile--todo .tile__icon svg { stroke:var(--mid-tone); }
-.tile__soon { display:inline-block; margin-top:7px; font-family:"Nunito"; font-weight:800; font-size:10px;
+.tile__soon { display:inline-block; margin-top:6px; font-family:"Nunito"; font-weight:800; font-size:9.5px;
   letter-spacing:.07em; text-transform:uppercase; color:var(--sand); border:1px solid var(--sand);
   border-radius:20px; padding:1px 9px; }
 
