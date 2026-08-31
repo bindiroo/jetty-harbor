@@ -51,6 +51,10 @@ const ICONS = {
   calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z"/>',
   gull:    '<path d="M2 11c3 0 5-3 7-3s2 2 3 2 1-2 3-2 4 3 7 3"/><path d="M8 14c1.5 2 3 3 4 3s2.5-1 4-3"/><circle cx="12" cy="7" r=".6" fill="currentColor" stroke="none"/>',
   link:    '<path d="M10 13a5 5 0 007.5.5l2-2A5 5 0 1012.5 4.5l-1 1"/><path d="M14 11a5 5 0 00-7.5-.5l-2 2A5 5 0 1011.5 19.5l1-1"/>',
+  media:   '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.4"/><path d="M3 16l4.5-4 3.5 3 3-2.5L21 17"/>',
+  pages:   '<path d="M4 6h10M4 12h10M4 18h10"/><path d="M18 5.5l2 2-2 2M18 15.5l2 2-2 2"/>',
+  table:   '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14.5h18M9 9v11"/>',
+  layout:  '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9.5 9v11"/><path d="M13 12.5h5M13 16h3"/>',
 };
 function iconSvg(key) {
   const body = ICONS[key] || ICONS.link;
@@ -58,15 +62,16 @@ function iconSvg(key) {
 }
 
 // ---------- tiles ----------
-function tileHtml(t) {
+function tileHtml(t, style) {
+  const cls = style ? ` tile--${style}` : "";
   const icon = `<div class="tile__icon">${iconSvg(t.icon)}</div>`;
   const body = `<div class="tile__body">
       <div class="tile__name">${esc(t.name)}</div>
       <div class="tile__blurb">${esc(t.blurb || "")}</div>
       ${t.url ? "" : '<span class="tile__soon">Link coming</span>'}
     </div>`;
-  if (!t.url) return `<div class="tile tile--todo">${icon}${body}</div>`;
-  return `<a class="tile" href="${esc(t.url)}" target="_blank" rel="noopener">
+  if (!t.url) return `<div class="tile${cls} tile--todo">${icon}${body}</div>`;
+  return `<a class="tile${cls}" href="${esc(t.url)}" target="_blank" rel="noopener">
       ${icon}${body}<span class="tile__arrow">↗</span>
     </a>`;
 }
@@ -74,14 +79,22 @@ function esc(s) {
   return String(s).replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
-function renderTiles() {
+// Sections come straight from HARBOR.SECTIONS, in that order. A tile with no
+// `section` falls into the first one, so the common case stays uncluttered.
+// A section with no tiles in it simply doesn't render.
+function renderSections() {
   const all = (HARBOR.TILES || []).filter((t) => !t.hidden);
-  $("#tiles").innerHTML = all.filter((t) => !t.fun).map(tileHtml).join("");
-  const fun = all.filter((t) => t.fun);
-  if (fun.length) {
-    $("#funTiles").innerHTML = fun.map(tileHtml).join("");
-    $("#funWrap").hidden = false;
-  }
+  const sections = HARBOR.SECTIONS || [{ key: "tools", label: "Tools" }];
+  const fallback = sections[0].key;
+  $("#sections").innerHTML = sections.map((s) => {
+    const mine = all.filter((t) => (t.section || fallback) === s.key);
+    if (!mine.length) return "";
+    return `<section class="sect">
+        <div class="sectlbl">${esc(s.label)}</div>
+        ${s.note ? `<div class="sectnote">${esc(s.note)}</div>` : ""}
+        <div class="tiles">${mine.map((t) => tileHtml(t, s.style)).join("")}</div>
+      </section>`;
+  }).join("");
 }
 
 // ---------- KPI strip ----------
@@ -127,6 +140,6 @@ async function init() {
   $("#heroTag").textContent = HARBOR.TAGLINE;
   $("#heroSub").textContent = HARBOR.SUBTITLE || "";
   document.title = HARBOR.PAGE_TITLE || HARBOR.NAME;
-  renderTiles();
+  renderSections();
   loadKpis();
 }

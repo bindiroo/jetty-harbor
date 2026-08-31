@@ -38,6 +38,27 @@ redeploys in about 20 seconds.
 A tile with `url: ""` renders dimmed with a "Link coming" badge, so you can list
 something before it's live.
 
+## Sections
+
+Tiles are grouped by `section`, and the groups themselves come from `SECTIONS`
+at the top of the same file — order on the page follows order in that list. A
+tile with no `section` falls into the first one, and a section with no tiles
+simply doesn't render.
+
+```js
+SECTIONS: [
+  { key: "tools",    label: "Tools" },
+  { key: "airtable", label: "Airtable", style: "airtable", note: "…" },
+  { key: "fun",      label: "Off the clock" },
+],
+```
+
+`style: "airtable"` gives those tiles a sand left edge and sand icon, so links
+that leave the Jetty sites read differently at a glance without leaving the
+brand palette. `note` is an optional line of hint text under the heading. To add
+another styled group, add a `SECTIONS` entry and a `.tile--<style>` rule in
+`css/harbor.css`.
+
 ## Password
 
 The site is **public** — anyone with the link reaches it — and the first thing
