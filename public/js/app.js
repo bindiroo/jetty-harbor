@@ -55,6 +55,7 @@ const ICONS = {
   pages:   '<path d="M4 6h10M4 12h10M4 18h10"/><path d="M18 5.5l2 2-2 2M18 15.5l2 2-2 2"/>',
   table:   '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14.5h18M9 9v11"/>',
   layout:  '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9.5 9v11"/><path d="M13 12.5h5M13 16h3"/>',
+  box:     '<path d="M3 7.5l9-4.5 9 4.5v9l-9 4.5-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/>',
 };
 function iconSvg(key) {
   const body = ICONS[key] || ICONS.link;

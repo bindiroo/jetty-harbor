@@ -31,7 +31,8 @@ redeploys in about 20 seconds.
   name:  "New Tool",
   blurb: "One line about what it does.",
   url:   "https://new-tool.netlify.app",
-  icon:  "link",     // compass · manifest · tide · board · calendar · gull · link
+  icon:  "link",     // compass · manifest · tide · board · calendar · media ·
+                     // pages · table · layout · box · gull · link
 },
 ```
 
