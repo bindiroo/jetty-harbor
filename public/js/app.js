@@ -56,6 +56,7 @@ const ICONS = {
   table:   '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M3 14.5h18M9 9v11"/>',
   layout:  '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9.5 9v11"/><path d="M13 12.5h5M13 16h3"/>',
   box:     '<path d="M3 7.5l9-4.5 9 4.5v9l-9 4.5-9-4.5z"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9"/>',
+  people:  '<circle cx="9" cy="8" r="3.1"/><path d="M3.4 19.2a5.6 5.6 0 0111.2 0"/><path d="M16.2 5.6a3.1 3.1 0 010 4.8"/><path d="M17.6 14.4a5 5 0 013 4.8"/>',
 };
 function iconSvg(key) {
   const body = ICONS[key] || ICONS.link;

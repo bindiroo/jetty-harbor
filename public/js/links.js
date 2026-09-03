@@ -35,7 +35,7 @@ export const HARBOR = {
   // section: a key from SECTIONS above. Leave it off and the tile lands in the
   //          first section ("tools").
   // icon:    compass · manifest · tide · board · calendar · media · pages ·
-  //          table · layout · box · gull · link
+  //          table · layout · box · people · gull · link
   // url:     leave "" and the tile shows as "link coming" (dimmed, not clickable)
   TILES: [
     {
@@ -89,6 +89,12 @@ export const HARBOR = {
       blurb: "Pick & pack for wholesale and ecommerce orders.",
       url: "https://jettydistribution.up.railway.app",
       icon: "box",                  // has its own login — not the Jetty password
+    },
+    {
+      name: "The Lineup",
+      blurb: "The wholesale CRM.",
+      url: "https://jetty-the-lineup.netlify.app/",
+      icon: "people",               // Supabase-backed; not the shared Jetty gate
     },
 
     // ---------- Airtable ----------
