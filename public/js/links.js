@@ -39,10 +39,10 @@ export const HARBOR = {
   // url:     leave "" and the tile shows as "link coming" (dimmed, not clickable)
   TILES: [
     {
-      name: "Jetty Central Dashboard",
-      blurb: "Helm — booked dollars, goals, reps, retailers.",
-      url: "https://whsl-central-dashboard.netlify.app/",
-      icon: "compass",
+      name: "The Lineup",
+      blurb: "Master Dashboard and CRM.",
+      url: "https://jetty-the-lineup.netlify.app/",
+      icon: "people",               // Supabase-backed; not the shared Jetty gate
     },
     {
       name: "Manifest",
@@ -89,12 +89,6 @@ export const HARBOR = {
       blurb: "Pick & pack for wholesale and ecommerce orders.",
       url: "https://jettydistribution.up.railway.app",
       icon: "box",                  // has its own login — not the Jetty password
-    },
-    {
-      name: "The Lineup",
-      blurb: "The wholesale CRM.",
-      url: "https://jetty-the-lineup.netlify.app/",
-      icon: "people",               // Supabase-backed; not the shared Jetty gate
     },
 
     // ---------- Airtable ----------
