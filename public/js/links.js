@@ -100,13 +100,6 @@ export const HARBOR = {
       section: "airtable",
     },
     {
-      name: "CRM",
-      blurb: "Commercial Sales New base.",
-      url: "https://airtable.com/appVIK4CawVEY8hBJ/tblWhs5YnLHVVYhGd/viw6WWATT5UURDU8D?blocks=hide",
-      icon: "table",
-      section: "airtable",
-    },
-    {
       name: "Budget Tracker HUB",
       blurb: "",                    // add a one-liner here if you want one
       url: "https://airtable.com/appJbKBr1gHkPtd8a/pageqGmhsGBhBXiUM",
