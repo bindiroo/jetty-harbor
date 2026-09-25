@@ -84,12 +84,6 @@ export const HARBOR = {
       icon: "media",
     },
     {
-      name: "Territory Links",
-      blurb: "Every territory's private dashboard link, ready to hand out.",
-      url: "https://whsl-central-dashboard.netlify.app/?pages",
-      icon: "pages",
-    },
-    {
       name: "Warehouse",
       blurb: "Pick & pack for wholesale and ecommerce orders.",
       url: "https://jettydistribution.up.railway.app",
