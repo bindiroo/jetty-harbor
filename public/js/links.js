@@ -47,11 +47,18 @@ export const HARBOR = {
     {
       name: "Manifest",
       blurb: "Order status & fulfillment for the WHSL team.",
-      // MASTER link (?key=...) — shows every territory's rows, deliberately.
-      // Safe only because Harbor's audience is leadership, not reps. If reps
-      // ever get the Harbor password this must change: see README, "A note on
-      // the Manifest key".
-      url: "https://jetty-order-manifest.netlify.app/?key=0fb68200dae7459f9d083ec43f804d5e",
+      // No key in the address any more.
+      //
+      // This tile used to carry the MASTER key, which shows every territory's
+      // rows. The reasoning was that the Harbor's audience is leadership — but
+      // the Harbor publishes this file, so the key was readable by anyone who
+      // fetched js/links.js, signed in or not. The audience was never the
+      // limit; the file being public was.
+      //
+      // The Manifest now lives inside The Lineup and asks an authenticated
+      // function for that key, so it is released only to a signed-in staff
+      // member. Territory links (?t=<token>) are unaffected.
+      url: "https://jetty-the-lineup.netlify.app/manifest/",
       icon: "manifest",
     },
     {
