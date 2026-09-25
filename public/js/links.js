@@ -57,7 +57,12 @@ export const HARBOR = {
     {
       name: "Tide Chart",
       blurb: "Product trends, seasonality, and category mix.",
-      url: "https://jetty-tide-chart.netlify.app",
+      // Moved. It now lives inside The Lineup's deployment, where its data
+      // is behind the same sign-in as everything else. The old standalone
+      // site (jetty-tide-chart.netlify.app) published its Apps Script key in
+      // the page source, so anyone who found the file could read the feed.
+      // That site is being retired once this tile is confirmed working.
+      url: "https://jetty-the-lineup.netlify.app/tide-chart/",
       icon: "tide",
     },
     {
