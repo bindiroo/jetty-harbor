@@ -15,3 +15,23 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+# ============================================================
+# RETIRED — the Harbor now lives inside the main deployment.
+#
+# It moved because a browser ties a sign-in to one address and will not hand it
+# across to another. While the Harbor sat on this separate site, "sign in once"
+# was unreachable: every tile led somewhere that had to ask again. Now that it
+# is served from the same address as the tools it opens, one sign-in covers all
+# of them.
+#
+# This site also still carried the old shared password, checked against a hash
+# in its own page source. That is gone from the new one.
+#
+# force = true so nothing here is served at all, including that page source.
+# ============================================================
+[[redirects]]
+  from = "/*"
+  to = "https://jetty-the-lineup.netlify.app/"
+  status = 301
+  force = true
